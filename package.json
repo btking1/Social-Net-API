@@ -1,0 +1,25 @@
+{
+  "name": "social-net-api",
+  "version": "1.0.0",
+  "description": "Social  Networking API",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js",
+    "watch": "nodemon server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/btking1/Social-Net-API.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/btking1/Social-Net-API/issues"
+  },
+  "homepage": "https://github.com/btking1/Social-Net-API#readme",
+  "dependencies": {
+    "express": "^4.18.1",
+    "mongoose": "^6.5.2"
+  }
+}
