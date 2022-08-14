@@ -23,7 +23,7 @@ must have
 const { Schema, model } = require("mongoose");
 const validator = require("../utils/validate-email");
 
-const { validateEmail } = require("../utils/validate-email");
+// const { validateEmail } = require("../utils/validate-email");
 
 const userSchema = new Schema(
   {
@@ -39,7 +39,18 @@ const userSchema = new Schema(
       required: true,
       validate: [validator, "Please enter a valid email"],
     },
-    thoughts: []
+    thoughts: [
+      {
+        type: Schema.Types.ObjectId,
+        ref: "Thought",
+      },
+    ],
+    friends: [
+      {
+        type: Schema.Types.ObjectId,
+        ref: "User",
+      },
+    ],
   },
   {
     toJSON: {
@@ -49,6 +60,10 @@ const userSchema = new Schema(
     id: false,
   }
 );
+
+userSchema.virtual("thougtCount").get(function () {
+  return this.thoughts.length;
+});
 
 const User = model("User", userSchema);
 
