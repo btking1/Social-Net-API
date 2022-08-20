@@ -1,25 +1,3 @@
-/* mongoose model for user 
-must have 
--username
-    string
-    unique
-    required
-    trimmed
-
--email
-    string
-    unique
-    required
-    validated with isEmail
-
--thoughts
-    array of _id's of thoughts
-
--friends
-    array of _id's of users
-
-*/
-
 const { Schema, model } = require("mongoose");
 const validator = require("../utils/validate-email");
 
@@ -61,11 +39,18 @@ const userSchema = new Schema(
   }
 );
 
+// userSchema.virtual("thoughtCount").get(function () {
+//   return this.thoughts.reduce(
+//     (total, thought) => total + thought.reactions.length + 1,
+//     0
+//   );
+// });
 userSchema.virtual("thoughtCount").get(function () {
-  return this.thoughts.reduce(
-    (total, thought) => total + thought.reactions.length + 1,
-    0
-  );
+  return this.thoughts.length;
+});
+
+userSchema.virtual("friendCount").get(function () {
+  return this.friends.length;
 });
 
 const User = model("User", userSchema);
