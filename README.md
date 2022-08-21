@@ -60,6 +60,10 @@ some example routes:
 
 <br/>
 
+[LINK TO VIDEO](https://www.youtube.com/watch?v=P9NJh8Pr8Vk&t=4s)
+
+<br/>
+
 ## Questions
 
 <br/>
